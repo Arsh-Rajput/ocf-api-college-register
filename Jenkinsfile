@@ -20,14 +20,17 @@ pipeline
 				git "${Repository}"
 				echo 'copied repo'
 				
+				
 			}		
 		}
 		stage('Build')
 		{
 			steps
 			{
+				echo "using setting from ${user.home}/.m2/setting.xml"
 				sh 'mvn clean install'
 				echo 'build project successfully'
+				
 				
 			}		
 		}
