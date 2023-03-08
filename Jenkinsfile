@@ -12,6 +12,7 @@ pipeline
 	environment
 	{
 		AWS_DEFAULT_REGION='us-east-1'
+		#AWS_CRED_ENV_VAR=credentials('AWS_CREDENTIALS')
 	}
 	
 	agent any
@@ -24,10 +25,7 @@ pipeline
 			{
 				sh 'aws --version'
 				
-				withCredentials([aws(credentialsId: 'AWS_CREDENTIALS',aws_access_key: 'AWS_ACCESS_KEY_ID',aws_secret_access_key: 'AWS_SECRET_ACCESS_KEY')])
-				{
-				sh 'aws ec2 describe-instances'
-				}
+				
 				
 				
 			}		
@@ -69,7 +67,8 @@ pipeline
 		{
 			steps
 			{
-				withEnv(["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY}","AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_KEY}","AWS_DEFAULT_REGION=us-east-1"])
+				withCredentials([aws(credentialsId: 'AWS_CREDENTIALS',aws_access_key: 'AWS_ACCESS_KEY_ID',aws_secret_access_key: 'AWS_SECRET_ACCESS_KEY')])
+				
 				{
 					sh 'aws --version'
 					echo "access key ${AWS_ACCESS_KEY_ID}"
