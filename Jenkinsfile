@@ -21,6 +21,15 @@ pipeline
 				
 			}		
 		}
+		stage('Build')
+		{
+			steps
+			{
+				mvn clean install
+				echo 'build project successfully'
+				
+			}		
+		}
 	
 	}
 
