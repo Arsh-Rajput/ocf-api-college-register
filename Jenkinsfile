@@ -41,7 +41,7 @@ pipeline
 				echo "Creating docker image"
 				script
 				{
-					sh docker build -t app .
+					sh 'docker build -t app .'
 				}
 				
 				echo 'build image successfully'
