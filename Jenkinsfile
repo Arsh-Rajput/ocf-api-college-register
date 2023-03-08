@@ -9,10 +9,25 @@ pipeline
 		choice(name: "Repository", choices: ["https://github.com/Arsh-Rajput/ocf-api-college-register.git"], description: "Repo Option")
 		string(name: "branchToBuild", defaultValue:"master", description:"to select branch")
 	}
+	environment
+	{
+		AWS_DEFAULT_REGION='us-east-1'
+	}
 	
 	agent any
 	stages
+	
 	{
+		stage('AWS Configure')
+		{
+			steps
+			{
+				sh 'aws --version'
+				sh 'aws ec2 describe-instances'
+				
+				
+			}		
+		}
 		stage('git checkout')
 		{
 			steps
