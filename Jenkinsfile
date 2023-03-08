@@ -6,7 +6,7 @@ pipeline
 	}
 	parameters
 	{
-		choice(name: "Repo", choices: ["git@github.com:Arsh-Rajput/ocf-library-web-client.git"], description: "Repo Option")
+		choice(name: "Repository", choices: ["git@github.com:Arsh-Rajput/ocf-library-web-client.git"], description: "Repo Option")
 		string(name: "branchToBuild", defaultValue:"master", description:"to select branch")
 	}
 	agent any
@@ -16,7 +16,7 @@ pipeline
 		{
 			steps
 			{
-				git "$Repo"
+				git '${Repository}'
 				echo 'copied repo'
 				
 			}		
