@@ -16,7 +16,7 @@ pipeline
 		{
 			steps
 			{
-				git '${Repository}'
+				git "${Repository}"
 				echo 'copied repo'
 				
 			}		
