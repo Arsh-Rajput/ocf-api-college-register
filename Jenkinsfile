@@ -52,6 +52,7 @@ pipeline
 			{
 				withEnv(["AWS_ACCESS_KEY_ID=${env.AWS_ACCESS_KEY}","AWS_SECRET_ACCESS_KEY=${env.AWS_SECRET_KEY}","AWS_DEFAULT_REGION=us-east-1"])
 				{
+					sh 'aws --version'
 					echo "access key ${AWS_ACCESS_KEY_ID}"
 					sh 'docker login -u AWS -p $(aws ecr-public get-login-password --region us-east-1) public.ecr.aws/s3p7e0c3'
 					sh 'docker tag app:latest public.ecr.aws/s3p7e0c3/collegeapp:latest'
