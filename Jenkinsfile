@@ -12,7 +12,7 @@ pipeline
 	environment
 	{
 		AWS_DEFAULT_REGION='us-east-1'
-		#AWS_CRED_ENV_VAR=credentials('AWS_CREDENTIALS')
+		
 	}
 	
 	agent any
