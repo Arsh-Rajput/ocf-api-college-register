@@ -6,7 +6,7 @@ pipeline
 	}
 	parameters
 	{
-		choice(name: "Repository", choices: ["git@github.com:Arsh-Rajput/ocf-api-college-register.git"], description: "Repo Option")
+		choice(name: "Repository", choices: ["https://github.com/Arsh-Rajput/ocf-api-college-register.git"], description: "Repo Option")
 		string(name: "branchToBuild", defaultValue:"master", description:"to select branch")
 	}
 	agent any
