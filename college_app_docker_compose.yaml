@@ -1,0 +1,32 @@
+version : '3'
+services:
+    mysql:
+       
+        image: mysql
+        container_name: mysqlserver
+        
+        ports:
+            - 3306:3306
+        networks:
+            - college_app_network
+        environment:
+            - MYSQL_USER=sa
+            - MYSQL_ROOT_PASSWORD=1234
+            - MYSQL_PASSWORD=1234
+            - MYSQL_DATABASE=college
+        volumes:
+            - collegeAppDatabase:/var/lib/mysql
+    collegeapp:
+        
+        image: ${APP_IMAGE_TAG}
+        ports: 
+            - 8092:8080
+        networks:
+            - college_app_network
+        
+networks:
+    college_app_network:
+        driver: bridge
+volumes:
+    collegeAppDatabase:
+        driver: local

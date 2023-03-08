@@ -1,0 +1,10 @@
+server.port : 8090
+server.servlet.context-path : /ocf/api/demo
+spring.datasource.url: jdbc:mysql://mysqlserver/college
+spring.datasource.driver-class-name : com.mysql.cj.jdbc.Driver
+spring.datasource.username: sa
+spring.datasource.password: 1234
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+spring.jpa.hibernate.ddl-auto : update
+
+
