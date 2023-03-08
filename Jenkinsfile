@@ -27,7 +27,7 @@ pipeline
 		{
 			steps
 			{
-				echo "using setting from ${user.home}/.m2/setting.xml"
+				echo "using setting from ${HOME}/.m2/setting.xml"
 				sh 'mvn clean install'
 				echo 'build project successfully'
 				
