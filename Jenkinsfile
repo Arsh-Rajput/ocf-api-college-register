@@ -75,8 +75,8 @@ pipeline
 					
 					sh 'docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 655859678200.dkr.ecr.ap-south-1.amazonaws.com'
 					echo 'docker login successfull'
-					sh 'docker tag app:latest public.ecr.aws/s3p7e0c3/collegeapp:latest'
-					sh 'docker push public.ecr.aws/s3p7e0c3/collegeapp:latest'
+					sh 'docker tag app:latest 655859678200.dkr.ecr.ap-south-1.amazonaws.com/collegeapp:latest'
+					sh 'docker push 655859678200.dkr.ecr.ap-south-1.amazonaws.com/collegeapp:latest'
 					echo 'pushed image to ecr successfully'
 				
 				}
