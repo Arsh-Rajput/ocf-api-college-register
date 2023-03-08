@@ -23,7 +23,11 @@ pipeline
 			steps
 			{
 				sh 'aws --version'
+				
+				withCredentials([aws(credentialsId: 'AWS_CREDENTIALS',aws_access_key: 'AWS_ACCESS_KEY_ID',aws_secret_access_key: 'AWS_SECRET_ACCESS_KEY')])
+				{
 				sh 'aws ec2 describe-instances'
+				}
 				
 				
 			}		
