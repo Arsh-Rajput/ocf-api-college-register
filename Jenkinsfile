@@ -72,6 +72,7 @@ pipeline
 				{
 					sh 'aws --version'
 					echo "access key ${AWS_ACCESS_KEY_ID}"
+					sh 'aws ecr-public get-login-password --region us-east-1'
 					sh 'docker login -u AWS -p $(aws ecr-public get-login-password --region us-east-1) public.ecr.aws/s3p7e0c3'
 					echo 'docker login successfull'
 					sh 'docker tag app:latest public.ecr.aws/s3p7e0c3/collegeapp:latest'
