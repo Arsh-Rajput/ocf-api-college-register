@@ -34,6 +34,21 @@ pipeline
 				
 			}		
 		}
+		stage('Docker Imgage')
+		{
+			steps
+			{
+				echo "Creating docker image"
+				script
+				{
+					sh docker build -t app .
+				}
+				
+				echo 'build image successfully'
+				
+				
+			}		
+		}
 	
 	}
 
